@@ -23,10 +23,16 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-		Player player = new Player(202331);
-		System.out.println(player.points);
-		player.setID(202332);
-		System.out.println(player.points);
+		Player a = new Player(202331);
+		Player b = new Player(203081);
+		double[][] table = Comparison.compare(a, b);
+		for(int i = 0; i<table.length;i++) {
+			for(int j = 0; j<table[i].length;j++) {
+				System.out.print(table[i][j]+" ");
+			}
+			System.out.println();
+		}
+		
 
 		
 	}
