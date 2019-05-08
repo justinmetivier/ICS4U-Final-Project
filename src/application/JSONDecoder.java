@@ -19,10 +19,12 @@ public class JSONDecoder {
 		try {
 			json = (JSONObject) parser.parse(api);
 			System.out.println(json.toString());
+			api = json.toString();
+			System.out.println(api.charAt(6));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("Parse Failed");
+			System.out.println("Failed Parse");
 		}
 	}
 	
