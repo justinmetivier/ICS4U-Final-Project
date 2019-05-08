@@ -23,6 +23,11 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-		JSONDecoder a = new JSONDecoder();
+		Player player = new Player(202331);
+		System.out.println(player.points);
+		player.setID(202332);
+		System.out.println(player.points);
+
+		
 	}
 }
