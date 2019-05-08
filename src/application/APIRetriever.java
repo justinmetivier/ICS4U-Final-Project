@@ -19,7 +19,7 @@ public class APIRetriever {
 
 
 	      results = doHttpUrlConnectionAction(myUrl);
-	      System.out.println(results);
+//	      System.out.println(results);
 	    }
 	    catch (Exception e)
 	    {
