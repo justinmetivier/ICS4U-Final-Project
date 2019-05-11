@@ -9,11 +9,11 @@ public class Player {
 	public Player(int id) {
 		a = new JSONDecoder(id);
 		this.points = a.getPoints();
-		this.assists = a.getPoints();
-		this.rebounds = a.getPoints();
-		this.steals = a.getPoints();
-		this.blocks = a.getPoints();
-		this.fgp = a.getPoints();
+		this.assists = a.getAssists();
+		this.rebounds = a.getRebounds();
+		this.steals = a.getSteals();
+		this.blocks = a.getBlocks();
+		this.fgp = a.getFgp();
 		this.ftp=  a.getFtp();
 		this.turnovers = a.getTurnovers();
 		this.minutes = a.getMinutes();
@@ -24,14 +24,29 @@ public class Player {
 	public void setID(int id) {
 		a.SetID(id);
 		this.points = a.getPoints();
-		this.assists = a.getPoints();
-		this.rebounds = a.getPoints();
-		this.steals = a.getPoints();
-		this.blocks = a.getPoints();
-		this.fgp = a.getPoints();
+		this.assists = a.getAssists();
+		this.rebounds = a.getRebounds();
+		this.steals = a.getSteals();
+		this.blocks = a.getBlocks();
+		this.fgp = a.getFgp();
 		this.ftp=  a.getFtp();
 		this.turnovers = a.getTurnovers();
 		this.minutes = a.getMinutes();
 		this.tpp = a.getTpp();
+	}
+	
+	public double[] statArray() {
+		double[] array = new double[10];
+		array[0] = this.points;
+		array[1] = this.assists;
+		array[2] = this.rebounds;
+		array[3] = this.steals;
+		array[4] = this.blocks;
+		array[5] = this.turnovers;
+		array[6] = this.minutes;
+		array[7] = this.fgp;
+		array[8] = this.tpp;
+		array[9] = this.ftp;
+		return array;
 	}
 }
