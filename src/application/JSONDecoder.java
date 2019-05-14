@@ -18,9 +18,8 @@ public class JSONDecoder {
 	static JSONObject json;
 
 
-	public JSONDecoder(int id) {
+	public JSONDecoder() {
 		
-		SetID(id);
 
 	}
 	public static void SetID(int id) {
