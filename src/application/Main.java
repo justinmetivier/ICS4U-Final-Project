@@ -41,8 +41,10 @@ public class Main extends Application {
 
 			Menu mainMenu = new Menu();
 			SideBySide s = new SideBySide();
+			SinglePlayer sing = new SinglePlayer();
 			mainMenu.showMenu();
 			s.showTable(stats);
+			sing.showTable(stats);
 
 			
 			

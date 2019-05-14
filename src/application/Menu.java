@@ -82,11 +82,16 @@ public class Menu {
 		    	l1 = last1.getText();
 		    	l2 = last2.getText();
 		    	submitted = true;
-		    	
-		    	Main.mainStage.setScene(Main.sideBySide);
-				a.setID(findPlayer(f1,l1));
+		    	a.setID(findPlayer(f1,l1));
 				b.setID(findPlayer(f2,l2));
 				Main.stats = Comparison.compare(a, b);
+		    	
+				if(f1.length()>0&&l1.length()>0&&f2.length()>0&&l2.length()>0)
+		    	Main.mainStage.setScene(Main.sideBySide);
+				else
+			    Main.mainStage.setScene(Main.singlePlayer);
+
+				
 
 		    }
 		});		
