@@ -6,23 +6,15 @@ public class Player {
 
 	double points, assists, rebounds, steals, blocks, fgp, ftp, turnovers, minutes, tpp;
 
-	public Player(int id) {
-		a = new JSONDecoder(id);
-		this.points = a.getPoints();
-		this.assists = a.getAssists();
-		this.rebounds = a.getRebounds();
-		this.steals = a.getSteals();
-		this.blocks = a.getBlocks();
-		this.fgp = a.getFgp();
-		this.ftp=  a.getFtp();
-		this.turnovers = a.getTurnovers();
-		this.minutes = a.getMinutes();
-		this.tpp = a.getTpp();
-
+	public Player() {
+		
+		a = new JSONDecoder();
 	}
 	
 	public void setID(int id) {
-		a.SetID(id);
+		
+		if(id>0) {
+		JSONDecoder.SetID(id);
 		this.points = a.getPoints();
 		this.assists = a.getAssists();
 		this.rebounds = a.getRebounds();
@@ -33,6 +25,18 @@ public class Player {
 		this.turnovers = a.getTurnovers();
 		this.minutes = a.getMinutes();
 		this.tpp = a.getTpp();
+		} else {
+			this.points = 0;
+			this.assists = 0;
+			this.rebounds = 0;
+			this.steals = 0;
+			this.blocks = 0;
+			this.fgp = 0;
+			this.ftp= 0;
+			this.turnovers = 0;
+			this.minutes = 0;
+			this.tpp =0;
+		}
 	}
 	
 	public double[] statArray() {

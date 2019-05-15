@@ -1,39 +1,63 @@
 package application;
-	
+
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 public class Main extends Application {
-	
+
+	public static Stage mainStage;
+	public static Scene menu, sideBySide, singlePlayer;
+	public static double[][] stats;
+
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+	public void initialize(Stage primaryStage) {
+		try {
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.show();
+			mainStage = primaryStage;
+			
+
+			Menu mainMenu = new Menu();
+			SideBySide s = new SideBySide();
+			SinglePlayer sing = new SinglePlayer();
+			mainMenu.showMenu();
+			s.showTable(stats);
+			sing.showTable(stats);
+
+			
+			
+			
+
+			mainStage.setScene(menu);
+			initialize(primaryStage);
+
+		primaryStage.show();
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static void main(String[] args) {
-		launch(args);
-		Player a = new Player(202331);
-		Player b = new Player(203081);
-		double[][] table = Comparison.compare(a, b);
-		for(int i = 0; i<table.length;i++) {
-			for(int j = 0; j<table[i].length;j++) {
-				System.out.print(table[i][j]+" ");
-			}
-			System.out.println();
-		}
-		
-
-		
-	}
 }
