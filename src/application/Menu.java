@@ -12,6 +12,8 @@ import org.json.simple.parser.ParseException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -64,7 +66,7 @@ public class Menu {
 		addaplayer = new Button();
 		submit = new Button();
 		Text title = new Text("NBA Stats Navigator");
-		Text instructions = new Text("Select One-Player Stats or Two-Player Comparison");
+		Text instructions = new Text("Enter names in The text fields as first name, then last name \nEach row is a different player\nPlease ensure all names are spelt correctly and captilized\nFor one player stats, enter first and last name in first row");
 
 		TextField first1 = new TextField();
 		TextField last1 = new TextField();
@@ -81,7 +83,9 @@ public class Menu {
 				f2 = first2.getText();
 				l1 = last1.getText();
 				l2 = last2.getText();
-				submitted = true;
+				Main.player1Name = f1+" "+l1;
+				Main.player2Name = f2+" "+l2;
+
 				a.setID(findPlayer(f1, l1));
 				b.setID(findPlayer(f2, l2));
 				Main.stats = Comparison.compare(a, b);
@@ -89,12 +93,19 @@ public class Menu {
 				SideBySide s = new SideBySide();
 				SinglePlayer sing = new SinglePlayer();
 
-				if (f1.length() > 0 && l1.length() > 0 && f2.length() > 0 && l2.length() > 0) {
+				if (f1.length() > 0 && l1.length() > 0 && f2.length() > 0 && l2.length() > 0&&findPlayer(f1,l1)>0&&findPlayer(f2,l2)>0) {
 					s.showTable(Main.stats);
 					Main.mainStage.setScene(Main.sideBySide);
-				} else {
+				} else if(f1.length()>0&&l1.length()>0&&f2.length()==0&&l2.length()==0&&findPlayer(f1,l1)>0) {
 					sing.showTable(Main.stats);
 					Main.mainStage.setScene(Main.singlePlayer);
+				} else {
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("Invalid Input!");
+					alert.setHeaderText("The input entered does not match the input criteria");
+					alert.setContentText("Please try again");
+
+					alert.showAndWait();
 				}
 
 			}

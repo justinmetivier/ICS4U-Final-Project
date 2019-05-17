@@ -19,6 +19,7 @@ public class Main extends Application {
 	public static Stage mainStage;
 	public static Scene menu, sideBySide, singlePlayer;
 	public static double[][] stats;
+	public static String player1Name, player2Name;
 
 
 	public static void main(String[] args) {
