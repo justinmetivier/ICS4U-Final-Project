@@ -22,14 +22,18 @@ public class JSONDecoder {
 	}
 	public static void SetID(int id) {
 		try {
+			//retrives api of specified player
 		api = a.retrieveAPI(id);
+		//casts string to JSON object as it is in JSON format
 		json = (JSONObject) parser.parse(api);
+		//navigates to current year stats JSON 
 		json = (JSONObject) json.get("league");
 		json = (JSONObject) json.get("standard");
 		json = (JSONObject) json.get("stats");
 		json = (JSONObject) json.get("regularSeason");
 		JSONArray a = (JSONArray) json.get("season");
 		json = (JSONObject) a.get(0);
+		//sets the JSON object to the current year stats
 		json = (JSONObject) json.get("total");
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -38,6 +42,7 @@ public class JSONDecoder {
 		}
 	}
 
+	//all methods read stat from JSON and return the double value
 	public  double getPoints() {
 		double value = Double.parseDouble((String)json.get("ppg"));
 		return value;

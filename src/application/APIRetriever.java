@@ -15,6 +15,7 @@ public class APIRetriever {
 		  String results ="";
 	    try
 	    {
+	    	//url to the stats api, id is specific to each player
 	      String myUrl = "http://data.nba.net/10s/prod/v1//data/10s/prod/v1/2018/players/"+id+"_profile.json";
 
 
@@ -41,7 +42,7 @@ public class APIRetriever {
 	      url = new URL(desiredUrl);
 	      HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 	      
-	      // just want to do an HTTP GET here
+	      // HTTP GET for retrieving, no need to post anything
 	      connection.setRequestMethod("GET");
 	      
 	     
@@ -54,11 +55,13 @@ public class APIRetriever {
 	      reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 	      stringBuilder = new StringBuilder();
 
+	      //builds string
 	      String line = null;
 	      while ((line = reader.readLine()) != null)
 	      {
 	        stringBuilder.append(line + "\n");
 	      }
+	      //returns string of api
 	      return stringBuilder.toString();
 	    }
 	    catch (Exception e)

@@ -7,12 +7,12 @@ public class Player {
 	double points, assists, rebounds, steals, blocks, fgp, ftp, turnovers, minutes, tpp;
 
 	public Player() {
-		
+		//creates new JSON decoder
 		a = new JSONDecoder();
 	}
 	
 	public void setID(int id) {
-		
+		//if id is valid, assign all JSON stats to instance variables, else, set stats to zero
 		if(id>0) {
 		JSONDecoder.SetID(id);
 		this.points = a.getPoints();
@@ -39,6 +39,7 @@ public class Player {
 		}
 	}
 	
+	//puts all stats into a 1d array and returns
 	public double[] statArray() {
 		double[] array = new double[10];
 		array[0] = this.points;

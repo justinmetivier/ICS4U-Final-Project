@@ -17,6 +17,8 @@ public class SinglePlayer extends Table{
 		GridPane table = new GridPane();
 		Button menu = new Button();
 		Text title = new Text("Single Player");
+		
+		//display stat tiles
 
 		Text ppg1 = new Text("PPG");
 		Text apg1 = new Text("APG");
@@ -30,6 +32,7 @@ public class SinglePlayer extends Table{
 		Text mins1 = new Text("Mins");
 		Text name = new Text(Main.player1Name);
 		
+		//add titles and name of player to gridpane, spaced two apart
 		table.add(title, 1, 0);
 		table.add(name, 0, 1);
 		table.add(ppg1, 0, 3);
@@ -43,6 +46,7 @@ public class SinglePlayer extends Table{
 		table.add(ftp1, 0, 19);
 		table.add(mins1, 0, 21);
 		
+		//gets and adds stat totals to gridpane
 		Text ppgval = new Text("" + Math.abs(Main.stats[2][0]));
 		Text apgval = new Text("" + Math.abs(Main.stats[2][1]));
 		Text rpgval = new Text("" + Math.abs(Main.stats[2][2]));
@@ -69,13 +73,13 @@ public class SinglePlayer extends Table{
 
 
 
-		
+		//button to go back to menu
 		menu.setText("Back to Menu");
 		table.add(menu, 0, 25);
 		menu.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) throws NullPointerException{
 		    	
-		    	
+		    	//static scene from Main
 		    	Main.mainStage.setScene(Main.menu);
 			
 

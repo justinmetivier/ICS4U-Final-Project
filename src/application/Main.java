@@ -16,6 +16,8 @@ import javafx.scene.text.Text;
 
 public class Main extends Application {
 
+	
+	//creates all of these as static so they can be accessed by the different UI classes
 	public static Stage mainStage;
 	public static Scene menu, sideBySide, singlePlayer;
 	public static double[][] stats;
@@ -39,7 +41,7 @@ public class Main extends Application {
 		try {
 			mainStage = primaryStage;
 			
-
+			//initial screen of UI
 			Menu mainMenu = new Menu();
 			mainMenu.showMenu();			
 			

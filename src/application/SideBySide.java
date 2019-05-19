@@ -16,6 +16,7 @@ public class SideBySide extends Table {
 		Button menu = new Button();
 		Text title = new Text("Side By Side");
 
+		//displays titles for stats of player 1, spaced two apart
 		Text ppg1 = new Text("PPG");
 		Text apg1 = new Text("APG");
 		Text rpg1 = new Text("RPG");
@@ -41,6 +42,7 @@ public class SideBySide extends Table {
 		table.add(ftp1, 0, 19);
 		table.add(mins1, 0, 21);
 
+		//titles for player 2
 		Text ppg2 = new Text("PPG");
 		Text apg2 = new Text("APG");
 		Text rpg2 = new Text("RPG");
@@ -62,6 +64,8 @@ public class SideBySide extends Table {
 		table.add(tpp2, 2, 17);
 		table.add(ftp2, 2, 19);
 		table.add(mins2, 2, 21);
+		
+		//displays stats of player 1
 
 		Text ppgval1 = new Text("" + Main.stats[0][0]);
 		Text apgval1 = new Text("" + Main.stats[0][1]);
@@ -84,6 +88,8 @@ public class SideBySide extends Table {
 		table.add(tppval1, 1, 17);
 		table.add(ftpval1, 1, 19);
 		table.add(minsval1, 1, 21);
+		
+		//stats of player 2
 
 		Text ppgval2 = new Text("" + Main.stats[1][0]);
 		Text apgval2 = new Text("" + Main.stats[1][1]);
@@ -97,6 +103,7 @@ public class SideBySide extends Table {
 		Text minsval2 = new Text("" + Main.stats[1][6]);
 		Text name2 = new Text(Main.player2Name);
 
+		//if one stat is greater than the other, highlight the greater one
 		if (Main.stats[2][0] < 0)
 			ppgval2.setFill(Color.GREEN);
 		else
@@ -146,6 +153,8 @@ public class SideBySide extends Table {
 			minsval2.setFill(Color.GREEN);
 		else
 			minsval1.setFill(Color.GREEN);
+		
+		//adds stats of player 2
 		table.add(name2, 3, 1);
 		table.add(ppgval2, 3, 3);
 		table.add(apgval2, 3, 5);
@@ -158,6 +167,8 @@ public class SideBySide extends Table {
 		table.add(ftpval2, 3, 19);
 		table.add(minsval2, 3, 21);
 
+		
+		//back to menu button
 		menu.setText("Back to Menu");
 		table.add(menu, 0, 25);
 		menu.setOnAction(new EventHandler<ActionEvent>() {
